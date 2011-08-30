@@ -39,11 +39,9 @@ return array(
 
 	'GET /' => array('name' => 'index', function()
 	{
-		$view = View::make('core.about');
-		
-		echo 'DERP1';
-		die;
-		//$view->bind('content', View::make('core.index'));
+		$view = View::of_layout();
+		$view->bind('content', View::make('core.index'));
+		$view->bind('nav', View::make('core.nav.index'));
 		return $view;
 	}),
 	

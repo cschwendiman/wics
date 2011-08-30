@@ -39,14 +39,17 @@ return array(
 	|
 	*/
 
-	'core.layout' => array('name' => 'layout', function($view)
+	'layout.layout' => array('name' => 'layout', function($view)
 	{
 		Asset::add('jquery', 'js/jquery.js');
-		Asset::add('layout', 'css/layout.css', 'jquery');
+		Asset::add('reset', 'css/core/layout/reset.css');
+		Asset::add('960', 'css/core/layout/960.css');
+		Asset::add('text', 'css/core/layout/text.css');
+		Asset::add('layout', 'css/core/layout/layout.css');
 		
 		$view->partial('header', 'layout/header');
 		$view->partial('footer', 'layout/footer');
-		
+
 		return $view;
 	}),
 

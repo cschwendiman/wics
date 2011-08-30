@@ -1,79 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"> 
-	<title>Welcome To Laravel!</title> 
- 
-	<link href="http://fonts.googleapis.com/css?family=Quattrocento&amp;v1" rel="stylesheet" type="text/css" media="all" />
-	<link href="http://fonts.googleapis.com/css?family=Ubuntu&amp;v1" rel="stylesheet" type="text/css" media="all" />
-	<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
-
-	<style type="text/css">
-		body {
-			background-color: #eee;
-			color: #6d6d6d;
-			font-family: 'Ubuntu';
-			font-size: 15px;
-		}
-
-		a {
-			color: #7089b3;
-			font-weight: bold;
-			text-decoration: none;
-		}
-
-		h1.laravel {
-			font-family: 'Lobster Two', Helvetica, serif;				
-			font-size: 60px;
-			margin: 0 0 15px -10px;
-			padding: 0;
-			text-shadow: -1px 1px 1px #fff;
-		}
-
-		h2 {
-			font-family: 'Quattrocento', serif;
-			font-size: 30px;
-			margin: 30px 0 0 0;
-			padding: 0;
-			text-shadow: -1px 1px 1px #fff;
-		}
-
-		p {
-			margin: 10px 0 0 0;
-			line-height: 25px;
-		}
-
-		#header {
-			margin: 0 auto;
-			margin-bottom: 15px;
-			margin-top: 20px;
-			width: 80%;
-		}
-
-		.wrapper {
-			background-color: #fff;
-			border-radius: 10px;
-			margin: 0 auto;
-			padding: 10px;
-			width: 80%;
-		}
-
-		.wrapper h2:first-of-type {
-			margin-top: 0;
-		}
-	</style>
-</head> 
-<body>
-	<div id="header">
-		<h1 class="laravel">Laravel</h1>
-	</div>
-
-	<div class="wrapper">
-		<h2>Installation Complete!</h2>
-
-		<p>Ready to dig in? Start building your application in the <strong>application/routes.php</strong> file.</p>
-
-		<p>Need to learn more? Peruse our <a href="http://laravel.com">wonderful documentation</a>.</p>
-	</div>
-</body> 
-</html>
+<div id="about-box">Women in Computer Sciences at the University of Texas at Austin is a non-profit organization dedicated to building a network community of women in Computer Science.&nbsp;&nbsp;WiCS's mission is to encourage and support women in computing through outreach, professional development, academic initiatives, and social events.</div>
+<div class="post">
+<h2>Lorem ipsum dolor sit amet</h2>
+<h4>August 11th, 2011</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus placerat nibh eu diam ultrices lobortis a consectetur turpis. Mauris eleifend arcu suscipit urna adipiscing nec dapibus enim rutrum. Integer velit felis, pulvinar cursus gravida quis, lacinia vel nulla. Nunc ut dolor sapien. Nam lacinia vulputate lorem ut aliquet. Maecenas vehicula rhoncus sem ac rhoncus. Proin nec purus at nisi malesuada vehicula. Vivamus ultricies blandit nibh, sit amet faucibus urna tempus sit amet. Curabitur semper ornare nisl sed mattis. In orci nisi, adipiscing nec ultrices ut, malesuada nec risus. Mauris nunc nisi, semper sit amet viverra ac, consequat sit amet neque. Praesent aliquam lacus vitae mauris adipiscing eget accumsan sapien placerat. Cras eu urna neque, vitae tempus metus. Cras luctus feugiat tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu turpis sit amet ante porttitor suscipit. Mauris aliquam, elit pellentesque gravida pellentesque, sapien mi ornare diam, ac consectetur eros turpis id nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+</div>
+<div class="post">
+<h2>Sed a est ac velit pulvinar</h2>
+<h4>August 2nd, 2011</h4>
+<p>Sed a est ac velit pulvinar bibendum. Donec ornare commodo felis, ac dictum lorem suscipit sit amet. Curabitur iaculis, metus ac aliquam sodales, ante felis tempor mi, vel hendrerit lacus ante quis felis. Etiam in nisl libero. Nulla facilisi. Nullam mauris est, pharetra gravida mattis ac, pretium ut nisl. Nunc condimentum elit scelerisque massa auctor fermentum. Vestibulum erat lacus, venenatis at vulputate ut, sodales nec purus. Nulla facilisi. Ut non tincidunt dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+</div>
+<div class="post">
+<h2>Nulla facilisi. Quisque vestibulum</h2>
+<h4>August 1st, 2011</h4>
+<p>Nulla facilisi. Quisque vestibulum pretium elit et convallis. Etiam mattis porta felis, quis feugiat orci malesuada vel. Donec vel sem vitae lectus euismod egestas. Ut auctor scelerisque metus ut auctor. Fusce felis nunc, gravida et vehicula non, convallis sit amet lacus. Aenean id orci sed velit ultrices laoreet. Phasellus eu tortor sem. Sed vel orci id ligula faucibus sollicitudin. Aliquam erat volutpat. Aliquam condimentum interdum eros non imperdiet. Pellentesque eleifend enim eu nunc mattis viverra.</p> 
+</div>
