@@ -149,18 +149,15 @@ div.calday:hover {
 .calday.first.sat {
 	margin-left: 247px;
 }
-p, li {
-	line-height: 22px;
-}
-li {
-	display: inline;
-}
 #about-box{
 	margin: 0 0 30px;
 	background: #6e385d;
 	padding: 10px;
 	color: #eee;
 	border: 3px double #9d5d8a;
+}
+.post td {
+	padding: 0 25px 0 0;
 }
 #footer-sponsors {
 	text-align: center;
