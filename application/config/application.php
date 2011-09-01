@@ -11,7 +11,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://www.cs.utexas.edu/~wics/',
+	'url' => 'http://www.cs.utexas.edu/~wics/public',
 
 	/*
 	|--------------------------------------------------------------------------
