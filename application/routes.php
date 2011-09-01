@@ -42,29 +42,44 @@ return array(
 		$view = View::of_layout();
 		$view->bind('content', View::make('core.index'));
 		$view->bind('nav', View::make('core.nav.index'));
+		$view->header->topnav->selected = substr($view->content->view, 5);
 		return $view;
 	}),
 	
 	'GET /about' => array('name' => 'about', function()
 	{
-		echo 'DERP';
-		die;
-		return View::make('core.about');
+		$view = View::of_layout();
+		$view->bind('content', View::make('core.about'));
+		$view->bind('nav', View::make('core.nav.index'));
+		$view->header->topnav->selected = substr($view->content->view, 5);
+		return $view;
 	}),
 	
 	'GET /contact' => array('name' => 'contact', function()
 	{
-		return View::make('core.contact');
+		$view = View::of_layout();
+		$view->bind('content', View::make('core.contact'));
+		$view->bind('nav', View::make('core.nav.index'));
+		$view->header->topnav->selected = substr($view->content->view, 5);
+		return $view;
 	}),
 	
 	'GET /photos' => array('name' => 'photos', function()
 	{
-		return View::make('core.photos');
+		$view = View::of_layout();
+		$view->bind('content', View::make('core.photos'));
+		$view->bind('nav', View::make('core.nav.index'));
+		$view->header->topnav->selected = substr($view->content->view, 5);
+		return $view;
 	}),
 	
 	'GET /events' => array('name' => 'events', function()
 	{
-		return View::make('core.events');
+		$view = View::of_layout();
+		$view->bind('content', View::make('core.events'));
+		$view->bind('nav', View::make('core.nav.index'));
+		$view->header->topnav->selected = substr($view->content->view, 5);
+		return $view;
 	})
 
 );

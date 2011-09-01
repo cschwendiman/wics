@@ -48,6 +48,7 @@ return array(
 		Asset::add('layout', 'css/core/layout/layout.css');
 		
 		$view->partial('header', 'layout/header');
+		$view->header->partial('topnav', 'layout/topnav');
 		$view->partial('footer', 'layout/footer');
 
 		return $view;

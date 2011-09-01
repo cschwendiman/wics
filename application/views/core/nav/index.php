@@ -1,30 +1,4 @@
-<?php
-$days = date("t");
-$month = date("m");
-$year = date("y");
-
-echo "<div class=\"calmonth\">";
-
-for($i = 1; $i <= $days; $i++){
-	$timestamp = mktime(0,0,0,$month,$i,$year);
-	$day_of_week = date("D", $timestamp);
-	$head = $i == 1 ? ' first' : '';
-	$tail = $i == $days ? ' last' : '';
-	echo "<div class=\"calday $day_of_week$head$tail\">$i</div>";
-	
-}
-echo "</div>"
-?>
 <h2>Upcoming Events</h2>
-<h3>Some news update here</h3>
-<h4>August 11th, 2011</h4>
-<p>Short description here...</p>
-<h3>Some news update here</h3>
-<h4>August 11th, 2011</h4>
-<p>Short description here...</p>
-<h3>Some news update here</h3>
-<h4>August 11th, 2011</h4>
-<p>Short description here...</p>
-<h3>Some news update here</h3>
-<h4>August 11th, 2011</h4>
-<p>Short description here...</p>
+<div id="google-calendar" style="position:relative; overflow:hidden; display:block; width:250px; height:281px; border:1px solid #aaa;">
+<iframe src="https://www.google.com/calendar/b/0/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=rtsh97itkt43ii50vur9sd9f7k%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=America%2FChicago" style=" border-width:0; position:absolute; top:-9px; left:-8px" width="267" height="316" frameborder="0" scrolling="no"></iframe>
+</div>

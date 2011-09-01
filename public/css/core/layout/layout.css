@@ -10,6 +10,9 @@ body {
 	margin: 0;
 	color: #444444;
 }
+br{
+	margin:10px;
+}
 #header-background {
 	position: absolute;
 	top: 0;
@@ -88,7 +91,11 @@ body {
 	background: RGBA(237,142,47,.8);
 	color: #eee;
 }
-#content h3, #events h3 {
+#nav li a {
+	color: #fff;
+	text-decoration: none;
+}
+#content h2, #events h3 {
 	width: 100%;
 	margin: 0;
 }

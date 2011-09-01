@@ -12,10 +12,10 @@
 				<img src="/img/layout/logo2.png">
 			</div>
 			<div id="nav" class="grid_6">
-				<?php echo View::make('layout.topnav')->get(); ?>
+				<?=$topnav; ?>
 			</div>
 			<div id="email-signup" class="grid_3">
-				derp
+				
 			</div>
 		</div>
 		<div id="content-container" class="container_12">

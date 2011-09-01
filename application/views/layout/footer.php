@@ -1,7 +1,7 @@
 		</div>
 		<div id="footer-container" class="container_12">
 			<div id="footer-info" class="grid_6">
-				Derp info here
+				
 			</div>
 			<div id="footer-sponsors" class="grid_6">
 				Thank you to our sponsors:
