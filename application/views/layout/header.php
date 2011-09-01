@@ -9,7 +9,7 @@
 		<div id="header-background"></div>
 		<div id="header-container" class="container_12">
 			<div id="header" class="grid_3">
-				<img src="/img/layout/logo2.png">
+				<img src="img/layout/logo2.png">
 			</div>
 			<div id="nav" class="grid_6">
 				<?=$topnav; ?>

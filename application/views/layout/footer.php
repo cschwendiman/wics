@@ -6,8 +6,8 @@
 			<div id="footer-sponsors" class="grid_6">
 				Thank you to our sponsors:
 				<br>
-				<img src="/img/sponsors/universitycoop_logo.jpg"><img src="/img/sponsors/google_logo.png"><img src="/img/sponsors/qualcomm_logo.jpg">
-				<img src="/img/sponsors/lockheedmartin_logo.gif"><img src="/img/sponsors/yahoo_logo.jpg">
+				<img src="img/sponsors/universitycoop_logo.jpg"><img src="img/sponsors/google_logo.png"><img src="img/sponsors/qualcomm_logo.jpg">
+				<img src="img/sponsors/lockheedmartin_logo.gif"><img src="img/sponsors/yahoo_logo.jpg">
 				<br>
 				Interested in sponsoring an event?
 			</div>
