@@ -1,1 +1,6 @@
-Redirect . http://www.cs.utexas.edu/~wics/public/
+<IfModule mod_rewrite.c>
+     RewriteEngine on
+
+     RewriteRule ^(.*)$ public/$1
+</IfModule>
+
