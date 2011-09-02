@@ -1,6 +1,17 @@
 <div id="about-box">Women in Computer Sciences at the University of Texas at Austin is a non-profit organization dedicated to building a network community of women in Computer Science.&nbsp;&nbsp;WiCS's mission is to encourage and support women in computing through outreach, professional development, academic initiatives, and social events.</div>
 <div class="post">
 	<h2>
+		Facebook Page!
+	</h2>
+	<h4>
+		September 1st, 2011
+	</h4>
+	<p>
+		I'd like to introduce you to our new <a href="https://www.facebook.com/pages/Women-in-Computer-Science-The-University-of-Texas-Austin/127971027235949">Facebook page</a>! You can follow our events and connect to other WiCS members online! Go ahead and "like" us! :)
+	</p>
+</div>
+<div class="post">
+	<h2>
 		WiCS Kickoff!
 	</h2>
 	<h4>
