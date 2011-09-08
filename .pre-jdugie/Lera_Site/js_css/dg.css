@@ -1,0 +1,25 @@
+B,TD,TH,P,DIV,FORM,H1,H2,H3,H4,BLOCKQUOTE,UL,OL 
+
+{ font-family: Geneva, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px; color: #000000; 
+}
+
+a:link { color: #960300; font-size: 11px; font-weight: bold; }
+a:visited { color: #A4A2A1; font-size: 11px; font-weight: bold; }
+a:hover { color: #ffffff; font-size: 11px; font-weight: bold; }
+a:active { color: #CF2224; font-size: 11px; font-weight: bold; }
+A { font-size: 9px; color: #242424; font-weight: bold; }
+SPAN { font-size: 12px; color: #ffffff; font-weight: bold; }
+
+.legal { color: #242424; font-size: 9px; }
+.title { color: #ffffff; font-size: 9px; }
+.nsdammit { position: absolute; left: 0px; top: 0px; }
+.nsdammit2 { position: absolute; left: 0px; top: 110px;}
+.copyright { text-align: right; }
+.tourerror { color: #19b3ff; }
+
+body  { 
+font-size: 11px; 
+font-family: Geneva, Verdana, Arial, Helvetica, sans-serif; 
+margin: 0px; 
+padding: 0px; }
