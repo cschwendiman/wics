@@ -1,0 +1,2 @@
+DERP?
+<?=$this->event->render();?>

@@ -47,27 +47,9 @@ return array(
 
 		'sqlite' => array(
 			'driver'   => 'sqlite',
-			'database' => 'application',
-		),
-
-		'mysql' => array(
-			'driver'   => 'mysql',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => 'password',
-			'charset'  => 'utf8',
-		),
-
-		'pgsql' => array(
-			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => 'password',
-			'charset'  => 'utf8',
-		),
-
+			'database' => 'wics',
+		)
+		
 	),
 
 );
