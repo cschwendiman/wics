@@ -1,6 +1,6 @@
 <?php
-$manage = 'link_to_admin'.$model;
-$create = 'link_to_admin'.$model.'create';
+$manage = 'link_to_'.$model.'manage';
+$create = 'link_to_'.$model.'create';
 ?>
 <div class="row">
 	<div class="span16">

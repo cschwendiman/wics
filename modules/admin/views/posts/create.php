@@ -1,6 +1,12 @@
 <div class="row">
     <div class="span16">
     	<h1>Create New Post</h1>
+    	<?if($success = Session::get('success')){?>
+			<div class="alert-message success fade in" data-alert="alert">
+			  <a class="close" href="#">×</a>
+			  <p><strong>Success</strong> <?=$success?></p>
+			</div>
+		<?}?>
     	<?if($errors = Session::get('errors')){?>
 			<div class="alert-message error fade in" data-alert="alert">
 			  <a class="close" href="#">×</a>

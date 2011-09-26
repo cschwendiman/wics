@@ -10,7 +10,7 @@
 		<?}?>
 		<script >
 		  $(function() {
-		    $("table#manage").tablesorter({ sortList: [[1,0]] });
+		    $("table#manage").tablesorter({ sortList: [[0,0]] });
 		  });
 		</script>
 		<?=Form::open();?>
