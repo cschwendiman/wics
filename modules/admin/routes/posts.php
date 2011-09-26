@@ -48,9 +48,11 @@ return array(
 		$view = View::of_layout();
 		$view->bind('content', View::make('admin::posts.create'));
 		$view->bind('nav', View::make('admin::layout.tabs'));
+		
 		$current_user = Auth::user();
 		$view->content->current_user = $current_user;
 		$view->content->users = User::all();
+		
 		$view->header->topnav->active = 'posts';
 		$view->nav->model = 'posts';
 		$view->nav->active = 'create';

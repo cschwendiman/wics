@@ -1,8 +1,8 @@
 <?
 return array(
-	'GET /admin' => array('name' => 'adminindex', 'before' => 'auth', 'do' => function() {
+	'GET /admin' => array('name' => 'admin', 'before' => 'auth', 'do' => function() {
 		$view = View::of_layout();
-		$view->bind('content', View::make('admin::admin'));
+		$view->bind('content', View::make('admin::index'));
 		$view->header->topnav->active = $view->content->view;
 		return $view;
 	}),
@@ -21,68 +21,8 @@ return array(
 
 	'POST /admin/login' => function() {
 		if (Auth::login(Input::get('email'), Input::get('password')))
-			return Redirect::to_adminindex(); 
+			return Redirect::to_admin(); 
 		else 
 			return Redirect::to_login()->with('error', 'Username or password is incorrect');
 	},
-
-	'GET /admin/users' => array('name' => 'adminusers', function() {
-		$view = View::of_layout();
-		$view->bind('content', View::make('admin::admin'));
-		$view->bind('nav', View::make('admin::nav.users'));
-		$view->header->topnav->active = substr($view->content->view, 0, 5);
-		$view->nav->active = 'manage';
-		return $view;
-	}),
-	
-	'GET /admin/users/create' => array('name' => 'adminuserscreate', function() {
-		$view = View::of_layout();
-		$view->bind('content', View::make('admin::userscreate'));
-		$view->bind('nav', View::make('admin::nav.users'));
-		$view->header->topnav->active = substr($view->content->view, 0, 5);
-		$view->nav->active = 'create';
-		return $view;
-	}),
-	
-	'POST /admin/users/create' => array('name' => 'adminuserscreatepost', function() {
-		$view = View::of_layout();
-		$view->bind('content', View::make('admin::userscreate'));
-		$view->bind('nav', View::make('admin::nav.users'));
-		$view->header->topnav->active = substr($view->content->view, 0, 5);
-		$view->nav->active = 'create';
-		
-		$rules = array(
-		    'first_name'  => array('required', 'max:50'),
-		    'last_name'  => array('required', 'max:50'),
-		    'email' => array('required', 'email', 'unique:users'),
-		);
-		
-		$input = Input::all();
-		$input['email'] = $input['utcsid']."@cs.utexas.edu";
-		
-		$validator = Validator::make($input, $rules);
-
-		if ( ! $validator->valid())
-		{
-		    return $validator->errors;
-		}
-		
-		$user = new Admin/User($input);
-		if($user->validate()){
-			$user->save();
-		}
-		else {
-			
-		}
-		
-		return $view;
-	}),
-	
-	'GET /admin/roles' => array('name' => 'adminroles', function() {
-		
-	}),
-	
-	'GET /admin/events' => array('name' => 'adminevents', function() {
-		
-	}),
 );
