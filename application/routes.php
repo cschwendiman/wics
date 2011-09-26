@@ -88,23 +88,10 @@ return array(
 		$user->email = "cassie@cs.utexas.edu";
 		$user->first_name = "Cassie";
 		$user->last_name = "Schwendiman";
+		$user->password = Hash::make('0853');
+		$user->active = 1;
 		$user->save();
 		
-		$event = new Event();
-		$event->start_time = time();
-		$event->end_time = time();
-		$event->user_id = $user->id;
-		$event->google_id = 1;
-		$event->facebook_id = 1;
-		$event->name = "SOME EVENT";
-		$event->description = "This event is gonna be awesome!";
-		$event->rsvp = 1;
-		$event->location = "HERE";
-		$event->cancelled = 0;
-		$event->save();
-		
-		$view = View::make('core.test');
-		$view->bind('event', $event);
 		return $view;
 	})
 );

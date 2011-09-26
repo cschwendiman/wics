@@ -86,6 +86,8 @@ class View {
 			{
 				if ($name === $value or (isset($value['name']) and $name === $value['name']))
 				{
+					$key = ($module !== 'application') ? $module.'::'.$key : $key;
+
 					return new static($key, $data);
 				}
 			}
@@ -158,7 +160,7 @@ class View {
 
 		if ( ! file_exists($this->path.$view.EXT))
 		{
-			Exception\Handler::make(new Exception("View [$view] does not exist."))->handle();
+			Exception\Handler::make(new \Exception("View [$view] does not exist."))->handle();
 		}
 
 		foreach ($this->data as &$data)
