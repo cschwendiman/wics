@@ -29,14 +29,13 @@ return array(
 	'GET /admin/posts' => array('name' => 'adminposts', 'before' => 'auth', 'do' => function() {
 		$view = View::of_layout();
 		$view->bind('content', View::make('admin::posts'));
+		$view->bind('nav', View::make('admin::nav.users'));
 		$current_user = Auth::user();
-		var_dump($current_user);
-		die;
-		if(true){
+		if($current_user->getClearance() === 1){
 			$view->content->posts = Post::all();
 		}
 		else {
-			$view->content->posts = Post::where_user_id($user->id);
+			$view->content->posts = Post::where_user_id($current_user->id);
 		}
 		$view->header->topnav->active = $view->content->view;
 		$view->nav->active = 'manage';
