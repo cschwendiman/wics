@@ -1,13 +1,13 @@
 <?
 return array(	
 	'GET /admin/posts' => array('name' => 'postsmanage', 'before' => 'auth', 'do' => function() {
-		Asset::add('jquery', 'js/jquery.js');
-		Asset::add('bootstrapalerts', 'bootstrap/js/bootstrap-alerts.js', 'jquery');
-		Asset::add('jquerytablesort', 'js/jquery.tablesorter.min.js', 'jquery');
-		
 		$view = View::of_layout();
 		$view->bind('content', View::make('admin::posts.manage'));
 		$view->bind('nav', View::make('admin::layout.tabs'));
+		$view->header->topnav->active = 'posts';
+		$view->nav->model = 'posts';
+		$view->nav->active = 'manage';
+		
 		$current_user = Auth::user();
 		if($current_user->getClearance() === 1){
 			$view->content->posts = Post::all();
@@ -15,9 +15,7 @@ return array(
 		else {
 			$view->content->posts = Post::where_user_id($current_user->id);
 		}
-		$view->header->topnav->active = 'posts';
-		$view->nav->model = 'posts';
-		$view->nav->active = 'manage';
+		
 		return $view;
 	}),
 	
@@ -48,14 +46,14 @@ return array(
 		$view = View::of_layout();
 		$view->bind('content', View::make('admin::posts.create'));
 		$view->bind('nav', View::make('admin::layout.tabs'));
+		$view->header->topnav->active = 'posts';
+		$view->nav->model = 'posts';
+		$view->nav->active = 'create';
 		
 		$current_user = Auth::user();
 		$view->content->current_user = $current_user;
 		$view->content->users = User::all();
 		
-		$view->header->topnav->active = 'posts';
-		$view->nav->model = 'posts';
-		$view->nav->active = 'create';
 		return $view;
 	}),
 	

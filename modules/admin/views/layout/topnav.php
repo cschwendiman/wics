@@ -8,6 +8,7 @@
         <li<?=($active=='roles'?' class="active"':'');?>><?=HTML::link_to_rolesmanage('Roles');?></li>
         <li<?=($active=='posts'?' class="active"':'');?>><?=HTML::link_to_postsmanage('Posts');?></li>
         <li<?=($active=='events'?' class="active"':'');?>><?=HTML::link_to_eventsmanage('Events');?></li>
+        <li><?=HTML::link_to_logout('Logout');?></li>
       </ul>
     </div>
   </div>

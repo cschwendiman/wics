@@ -9,6 +9,18 @@
 			  <p><strong>Error</strong> <?=$error?></p>
 			</div>
 		<?}?>
+		<?if($warning = Session::get('warning')){?>
+			<div class="alert-message warning fade in" data-alert="alert">
+			  <a class="close" href="#">×</a>
+			  <p><strong>Warning</strong> <?=$warning?></p>
+			</div>
+		<?}?>
+		<?if($success = Session::get('success')){?>
+			<div class="alert-message success fade in" data-alert="alert">
+			  <a class="close" href="#">×</a>
+			  <p><strong>Success</strong> <?=$success?></p>
+			</div>
+		<?}?>
 		<?=Form::open('admin/login/', 'POST', array('class' => 'form-stacked', 'style' => 'padding-left:0;'));?>
 		<div class="clearfix"> <?//add error class?>
 			<?=Form::label('email', 'Email Address');?>
