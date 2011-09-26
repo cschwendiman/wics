@@ -27,6 +27,10 @@ return array(
 	},
 	
 	'GET /admin/posts' => array('name' => 'adminposts', 'before' => 'auth', 'do' => function() {
+		Asset::add('jquery', 'js/jquery.js');
+		Asset::add('bootstrapalerts', 'bootstrap/js/bootstrap-alerts.js', 'jquery');
+		Asset::add('jquerytablesort', 'js/jquery.tablesorter.min.js', 'jquery');
+		
 		$view = View::of_layout();
 		$view->bind('content', View::make('admin::posts'));
 		$view->bind('nav', View::make('admin::layout.tabs'));
@@ -45,8 +49,6 @@ return array(
 	}),
 	
 	'POST /admin/posts' => array('before' => 'auth', 'do' => function() {
-		echo "<pre>";
-		
 		$delete_posts = Input::get('delete') ? Input::get('delete') : array();
 		foreach($delete_posts as $id){
 			$post = Post::find($id);
@@ -61,27 +63,57 @@ return array(
 		}
 		$publish_posts = Input::get('publish') ? Input::get('publish') : array();
 		foreach($posts as $post){
-			$post->active = in_array($post->id, $publish_posts);
-			$post->save();
+			if((bool)$post->active != in_array($post->id, $publish_posts)){
+				$post->active = (int)!$post->active;
+				$post->save();
+			}
 		}
+		return Redirect::to_adminposts()->with('success', 'Changes made successfully');
 	}),
 	
 	'GET /admin/posts/create' => array('name' => 'adminpostscreate', 'before' => 'auth', 'do' => function() {
 		$view = View::of_layout();
-		$view->bind('content', View::make('admin::posts'));
+		$view->bind('content', View::make('admin::postscreate'));
 		$view->bind('nav', View::make('admin::layout.tabs'));
 		$current_user = Auth::user();
-		if($current_user->getClearance() === 1){
-			$view->content->posts = Post::all();
-		}
-		else {
-			$view->content->posts = Post::where_user_id($current_user->id);
-		}
-		$model = $view->content->view;
+		$view->content->current_user = $current_user;
+		$view->content->users = User::all();
+		$model = substr($view->content->view, 0, 5);
 		$view->header->topnav->active = $model;
 		$view->nav->model = $model;
-		$view->nav->active = 'manage';
+		$view->nav->active = 'create';
 		return $view;
+	}),
+	
+	'POST /admin/posts/create' => array('needs' => 'markdown', 'before' => 'auth', 'do' => function() {
+		$input = Input::all();
+		$rules = array(
+		    'name'  => array('required', 'max:50'),
+		    'markdown' => array('required'),
+		);
+		$messages = array(
+			'required' => 'Required',
+			'max' => 'Must be less than :max characters'
+		);
+		$validator = Validator::make($input, $rules, $messages);
+		if ( ! $validator->valid())
+		{
+		    return Redirect::to_adminpostscreate()->with('errors', $validator->errors);
+		}
+		
+		if(Input::has('preview')){
+			$description = MarkdownText(Input::get('markdown'));
+			return Redirect::to_adminpostscreate()->with('preview', $description);
+		} else {
+			$post = new Post;
+			$post->name = $input['name'];
+			$post->markdown = $input['markdown'];
+			$post->description = MarkdownText($post->markdown);
+			$post->user_id = $input['user_id'];
+			$post->active = (int)isset($input['publish']);
+			$post->save();
+			return Redirect::to_adminpostscreate()->with('success', 'Post successfully created'.($post->active?' and published':''));
+		}
 	}),
 
 	'GET /admin/users' => array('name' => 'adminusers', function() {

@@ -1,7 +1,20 @@
 <div class="row">
 	<div class="span16">
+		<h1>Manage Posts</h1>
+		<p>Check or uncheck boxes under "Publish" to publish or unpublish a post. Check boxes under "Delete" to delete a post. <strong>Deleteing a post is permanent.</strong></p>
+		<?if($success = Session::get('success')){?>
+			<div class="alert-message success fade in" data-alert="alert">
+			  <a class="close" href="#">×</a>
+			  <p><strong>Success</strong> <?=$success?></p>
+			</div>
+		<?}?>
+		<script >
+		  $(function() {
+		    $("table#manage").tablesorter({ sortList: [[1,0]] });
+		  });
+		</script>
 		<?=Form::open();?>
-		<table class="zebra-striped">
+		<table id="manage" class="zebra-striped">
 			<thead>
 				<tr>
 					<th>ID</th>
