@@ -23,13 +23,13 @@ return array(
 		if (Auth::login(Input::get('email'), Input::get('password')))
 			return Redirect::to_adminindex(); 
 		else 
-			return Redirect::to_login()->with('error', 'Username or password is incorrect');;
+			return Redirect::to_login()->with('error', 'Username or password is incorrect');
 	},
 	
 	'GET /admin/posts' => array('name' => 'adminposts', 'before' => 'auth', 'do' => function() {
 		$view = View::of_layout();
 		$view->bind('content', View::make('admin::posts'));
-		$view->bind('nav', View::make('admin::nav.users'));
+		$view->bind('nav', View::make('admin::layout.tabs'));
 		$current_user = Auth::user();
 		if($current_user->getClearance() === 1){
 			$view->content->posts = Post::all();
@@ -37,7 +37,49 @@ return array(
 		else {
 			$view->content->posts = Post::where_user_id($current_user->id);
 		}
-		$view->header->topnav->active = $view->content->view;
+		$model = $view->content->view;
+		$view->header->topnav->active = $model;
+		$view->nav->model = $model;
+		$view->nav->active = 'manage';
+		return $view;
+	}),
+	
+	'POST /admin/posts' => array('before' => 'auth', 'do' => function() {
+		echo "<pre>";
+		
+		$delete_posts = Input::get('delete') ? Input::get('delete') : array();
+		foreach($delete_posts as $id){
+			$post = Post::find($id);
+			$post->delete();
+		}
+		$current_user = Auth::user();
+		if($current_user->getClearance() === 1){
+			$posts = Post::all();
+		}
+		else {
+			$posts = Post::where_user_id($current_user->id);
+		}
+		$publish_posts = Input::get('publish') ? Input::get('publish') : array();
+		foreach($posts as $post){
+			$post->active = in_array($post->id, $publish_posts);
+			$post->save();
+		}
+	}),
+	
+	'GET /admin/posts/create' => array('name' => 'adminpostscreate', 'before' => 'auth', 'do' => function() {
+		$view = View::of_layout();
+		$view->bind('content', View::make('admin::posts'));
+		$view->bind('nav', View::make('admin::layout.tabs'));
+		$current_user = Auth::user();
+		if($current_user->getClearance() === 1){
+			$view->content->posts = Post::all();
+		}
+		else {
+			$view->content->posts = Post::where_user_id($current_user->id);
+		}
+		$model = $view->content->view;
+		$view->header->topnav->active = $model;
+		$view->nav->model = $model;
 		$view->nav->active = 'manage';
 		return $view;
 	}),

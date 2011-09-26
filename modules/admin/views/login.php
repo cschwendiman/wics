@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="actions" style="margin-left:0;">
-			<?=Form::submit('Submit', array('class' => 'btn primary'));?>
+			<?=Form::submit('Login', array('class' => 'btn primary'));?>
 			<?=Form::reset('Reset', array('class' => 'btn'));?>
 		</div>
 	</div>
