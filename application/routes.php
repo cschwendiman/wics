@@ -43,6 +43,7 @@ return array(
 		$view->bind('content', View::make('core.index'));
 		$view->bind('nav', View::make('core.nav.index'));
 		$view->header->topnav->selected = substr($view->content->view, 5);
+		$view->content->posts = Post::allActive();
 		return $view;
 	}),
 	
