@@ -1,6 +1,8 @@
 		<div class="post">
-			<h1 class="title">About</h1>
-			<div class="entry">
+			<div class="focus-box">
+				<p>Women in Computer Sciences at the University of Texas at Austin is a non-profit organization dedicated to building a network community of women in Computer Science.&nbsp;&nbsp;WiCS's mission is to encourage and support women in computing through outreach, professional development, academic initiatives, and social events.</p>
+			</div>
+			<div class="content">
                 <p>You can view our bylaws <a href="files/bylaws.pdf">here</a>.</p>
                 <p>Today, WiCS's goals are to:</p>
                 <ul>

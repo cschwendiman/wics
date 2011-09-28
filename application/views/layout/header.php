@@ -1,21 +1,12 @@
-<html>
-	<head>
-		<title>Women in Computer Sciences | The University of Texas at Austin</title>
-		<link href='http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-	    <?php echo Asset::styles(); ?>
-	    <?php echo Asset::scripts(); ?>
-	</head>
-	<body>
-		<div id="header-background"></div>
-		<div id="header-container" class="container_12">
-			<div id="header" class="grid_3">
-				<img src="img/layout/logo2.png">
-			</div>
-			<div id="nav" class="grid_6">
-				<?=$topnav; ?>
-			</div>
-			<div id="email-signup" class="grid_3">
-				
-			</div>
-		</div>
-		<div id="content-container" class="container_12">
+<div id="header" class="span10">
+	<h1>Women in Computer Sciences</h1>
+	<h6>The University of Texas at Austin</h6>
+</div>
+<div id="email-signup" class="span6"><?/*
+	<?=Form::open('subsribe', 'POST', array('class' => 'pull-right form-stacked'));?>
+	<h6>Join our mailing list</h6>
+	<?=Form::text('email', '', array('class' => 'span4', 'placeholder' => 'Your email address...'));?>
+	<?=Form::submit('Subscribe', array('class' => 'btn'));?>
+ * 
+ */?>
+</div>	
