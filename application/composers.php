@@ -1,55 +1,15 @@
 <?php
 
 return array(
-
-	/*
-	|--------------------------------------------------------------------------
-	| View Names & Composers
-	|--------------------------------------------------------------------------
-	|
-	| Named views give you beautiful syntax when working with your views.
-	|
-	| Here's how to define a named view:
-	|
-	|		'home.index' => array('name' => 'home')
-	|
-	| Now, you can create an instance of that view using the expressive View::of
-	| dynamic method. Take a look at this example:
-	|
-	|		return View::of_layout();
-	|
-	| View composers provide a convenient way to add common elements to a view
-	| each time it is created. For example, you may wish to bind a header and
-	| footer partial each time the view is created.
-	|
-	| The composer will receive an instance of the view being created, and is
-	| free to modify the view however you wish. Here is how to define one:
-	|
-	|		'home.index' => function($view)
-	|		{
-	|			//
-	|		}
-	|
-	| Of course, you may define a view name and a composer for a single view:
-	|
-	|		'home.index' => array('name' => 'home', function($view)
-	|		{
-	|			//
-	|		})	
-	|
-	*/
-
 	'layout.layout' => array('name' => 'layout', function($view)
 	{
 		Asset::add('jquery', 'js/jquery.js');
-		Asset::add('reset', 'css/core/layout/reset.css');
-		Asset::add('960', 'css/core/layout/960.css');
-		Asset::add('text', 'css/core/layout/text.css');
+		Asset::add('bootstrap', 'bootstrap/bootstrap.css');
 		Asset::add('layout', 'css/core/layout/layout.css');
 		
-		$view->partial('header', 'layout/header');
-		$view->header->partial('topnav', 'layout/topnav');
-		$view->partial('footer', 'layout/footer');
+		$view->header = View::make('layout/header');
+		$view->topnav = View::make('layout/topnav');
+     	$view->footer = View::make('layout/footer');
 
 		return $view;
 	}),

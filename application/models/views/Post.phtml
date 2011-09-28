@@ -1,7 +1,7 @@
 <div class="post">
 	<div class="header">
 		<h2><?=$this->name?></h2>
-		<small>Posted <?=$this->getDate();?> by <?=$this->user->getName();?></small>
+		<div class="post-by">Posted <?=$this->getDate();?> by <?=$this->user->getName();?></div>
 	</div>
 	<div class="content">
 		<?=$this->description?>

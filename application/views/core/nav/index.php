@@ -1,6 +1,4 @@
-<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FWomen-in-Computer-Science-The-University-of-Texas-Austin%2F127971027235949&amp;width=300&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=true&amp;height=85" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:85px;" allowTransparency="true"></iframe>
-
 <h2>Upcoming Events</h2>
-<div id="google-calendar" style="position:relative; overflow:hidden; display:block; width:250px; height:281px; border:1px solid #aaa;">
-<iframe src="https://www.google.com/calendar/b/0/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=rtsh97itkt43ii50vur9sd9f7k%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=America%2FChicago" style=" border-width:0; position:absolute; top:-9px; left:-8px" width="267" height="316" frameborder="0" scrolling="no"></iframe>
+<div id="google-calendar" style="position:relative; overflow:hidden; display:block; width:200px; height:281px; border:1px dashed #ddd; margin-top: 1px;">
+<iframe src="https://www.google.com/calendar/b/0/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=rtsh97itkt43ii50vur9sd9f7k%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=America%2FChicago" style=" border-width:0; position:absolute; top:-9px; left:-8px" width="217" height="316" frameborder="0" scrolling="no"></iframe>
 </div>
