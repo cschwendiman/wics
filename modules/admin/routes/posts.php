@@ -42,18 +42,13 @@ return array(
 		return Redirect::to_postsmanage()->with('success', 'Changes made successfully');
 	}),
 	
-	'GET /admin/posts/create, GET /admin/posts/update/(:num)' => array('name' => 'postscreate', 'before' => 'auth', 'do' => function($id = null) {
+	'GET /admin/posts/create' => array('name' => 'postscreate', 'before' => 'auth', 'do' => function() {
 		$view = View::of_layout();
 		$view->bind('content', View::make('admin::posts.create'));
 		$view->bind('nav', View::make('admin::layout.tabs'));
 		$view->header->topnav->active = 'posts';
 		$view->nav->model = 'posts';
-		$view->nav->active = $id ? 'update' : 'create';
-		
-		$view->content->post = $id ? Post::find($id+0) : null;
-		if($view->content->post === null && $id !== null){
-			return Redirect::to_postsmanage()->with('error', 'Post does not exist');
-		}
+		$view->nav->active = 'create';
 		
 		$current_user = Auth::user();
 		$view->content->current_user = $current_user;
@@ -62,18 +57,10 @@ return array(
 		return $view;
 	}),
 	
-	'POST /admin/posts/create, POST /admin/posts/update/(:num)' => array('needs' => 'markdown', 'before' => 'auth', 'do' => function($id = null) {
+	'POST /admin/posts/create' => array('needs' => 'markdown', 'before' => 'auth', 'do' => function() {
 		$input = Input::all();
-		$redirect_location = $id ? "admin/posts/update/$id" : 'admin/posts/create';
-		if($id && $input['id'] != $id){
-			return Redirect::to($redirect_location)->with('errors', array());
-		}
-		$post = $id ? Post::find($id+0) : null;
-		if($post === null && $id !== null){
-			return Redirect::to_postsmanage()->with('error', 'Post does not exist');
-		}
 		$rules = array(
-		    'name'  => array('required', 'max:100'),
+		    'name'  => array('required', 'max:50'),
 		    'markdown' => array('required'),
 		);
 		$messages = array(
@@ -83,26 +70,21 @@ return array(
 		$validator = Validator::make($input, $rules, $messages);
 		if ( ! $validator->valid())
 		{
-		    return Redirect::to($redirect_location)->with('errors', $validator->errors);
+		    return Redirect::to_postscreate()->with('errors', $validator->errors);
 		}
 		
 		if(Input::has('preview')){
 			$description = MarkdownText(Input::get('markdown'));
-			return Redirect::to($redirect_location)->with('preview', $description);
+			return Redirect::to_postscreate()->with('preview', $description);
 		} else {
-			$verb = isset($post) ? 'updated' : 'created';
-			$post = isset($post) ? $post : new Post;
+			$post = new Post;
 			$post->name = $input['name'];
 			$post->markdown = $input['markdown'];
 			$post->description = MarkdownText($post->markdown);
 			$post->user_id = $input['user_id'];
 			$post->active = (int)isset($input['publish']);
 			$post->save();
-			return Redirect::to($redirect_location)->with('success', 'Post successfully '.$verb.($post->active?' and published':''));
+			return Redirect::to_postscreate()->with('success', 'Post successfully created'.($post->active?' and published':''));
 		}
 	}),
-	
-	'GET /admin/posts/update' => array('before' => 'auth', 'do' => function() {
-		return Redirect::to_postsmanage()->with('error', 'To update a post click on its update link in the table below');
-	})
 );

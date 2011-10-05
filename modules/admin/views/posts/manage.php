@@ -7,11 +7,6 @@
 			  <a class="close" href="#">×</a>
 			  <p><strong>Success</strong> <?=$success?></p>
 			</div>
-		<?}elseif($error = Session::get('error')){?>
-			<div class="alert-message error fade in" data-alert="alert">
-			  <a class="close" href="#">×</a>
-			  <p><strong>Error</strong> <?=$error?></p>
-			</div>
 		<?}?>
 		<script >
 		  $(function() {
@@ -26,7 +21,6 @@
 					<th>Name</th>
 					<th>Created</th>
 					<th>Updated</th>
-					<th>Update</th>
 					<th>Publish</th>
 					<th>Delete</th>
 				</tr>
