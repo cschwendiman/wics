@@ -1,6 +1,10 @@
 <div class="row">
     <div class="span16">
-    	<h1>Create New Post</h1>
+		<?
+		$isupdate = isset($post);
+		$h1 = $isupdate ? 'Update' : 'Create New';
+		?>
+    	<h1><?=$h1?> Post</h1>
     	<?if($success = Session::get('success')){?>
 			<div class="alert-message success fade in" data-alert="alert">
 			  <a class="close" href="#">×</a>
@@ -10,33 +14,46 @@
     	<?if($errors = Session::get('errors')){?>
 			<div class="alert-message error fade in" data-alert="alert">
 			  <a class="close" href="#">×</a>
-			  <p><strong>Error</strong> Please fix the following errors</p>
+			  <? $msg = count(errors) ? "Please fix the following errors" : "An unknown error has occured"; ?>
+			  <p><strong>Error</strong> <?=$msg?></p>
 			</div>
 		<?}?>
-		<?=Form::open('admin/posts/create/', 'POST');?>
+		<?=Form::open();?>
 		<?//Form::token();?>
-		<?$error = $errors&&$errors->has('name');?>
+		<?if($isupdate){?>
+			<?=Form::hidden('id', $post->id);?> 
+		<?}?>
+		<?
+		$error = $errors&&$errors->has('name');
+		$default = $isupdate ? $post->name : '';
+		?>
 		<div class="clearfix<?=$error?' error':''?>">
 			<?=Form::label('name', 'Title of Post');?>
 			<div class="input<?=$error?' error':''?>">
-			<?=Form::text('name', Input::old('name'), array('class' => 'span10'));?>
+			<?=Form::text('name', Input::old('name', $default), array('class' => 'span10'));?>
 			<?if($error){?>
 				<span class="help-inline"><?=$errors->first('name');?></span>
 			<?}?>
 			</div>
 		</div>
-		<?$error = $errors&&$errors->has('markdown');?>
+		<?
+		$error = $errors&&$errors->has('markdown');
+		$default = $isupdate ? $post->markdown : '';
+		?>
 		<div class="clearfix<?=$error?' error':''?>">
 			<?=Form::label('markdown', 'Body Text of Post');?>
 			<div class="input <?=$error?' error':''?>">
-			<?=Form::textarea('markdown', Input::old('markdown'), array('class' => 'span10'));?>
+			<?=Form::textarea('markdown', Input::old('markdown', $default), array('class' => 'span10'));?>
 			<?if($error){?>
 				<span class="help-inline"><?=$errors->first('markdown');?></span>
 			<?}?>
 			<span class="help-block">Please use <?=HTML::link('http://daringfireball.net/projects/markdown/syntax', 'markdown');?> to markup your post.</span>
 			</div>
 		</div>
-		<?$error = $errors&&$errors->has('user_id');?>
+		<?
+		$error = $errors&&$errors->has('user_id');
+		$default = $isupdate ? $post->user_id : '';
+		?>
 		<div class="clearfix<?=$error?' error':''?>">
 			<?=Form::label('user_id', 'Author of Post');?>
 			<div class="input<?=$error?' error':''?>">
