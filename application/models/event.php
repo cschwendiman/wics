@@ -5,17 +5,17 @@ class Event extends Base {
 	
 	public function getStartTime() 
 	{
-		return date("g:i A", $this->start_time);
+		return date("g:i A", strtotime($this->start_time));
 	}
 	
 	public function getEndTime() 
 	{
-		return date("g:i A", $this->end_time);
+		return date("g:i A", strtotime($this->end_time));
 	}
 	
 	public function getDate() 
 	{
-		return date("l, F jS, Y", $this->start_time);
+		return date("l, F jS, Y", strtotime($this->start_time));
 	}
 	
 	public function user()
