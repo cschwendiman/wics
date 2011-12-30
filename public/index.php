@@ -42,3 +42,4 @@ $public      = __DIR__;
 // Launch Laravel.
 // --------------------------------------------------------------
 require $system.'/laravel.php';
+?>
