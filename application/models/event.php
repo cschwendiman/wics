@@ -22,5 +22,10 @@ class Event extends Base {
 	{
 		return $this->belongs_to('User');
 	}
+
+    public function isoFormat($date, $time)
+    {
+        return date('Y-m-d', strtotime($date)).'T'.date('H:i:s', $time);
+    }
 	
 }

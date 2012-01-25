@@ -74,7 +74,7 @@
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('location', 'Location');?>
             <div class="input<?=$error?' error':''?>">
-            <?=Form::text('location', Input::old('location', $default), array('class' => 'span10'));?>
+            <?=Form::text('location', Input::old('location', $default), array('class' => 'span6'));?>
             <?if($error){?>
                 <span class="help-inline"><?=$errors->first('location');?></span>
             <?}?>
@@ -84,11 +84,11 @@
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('start_time', 'Start Time');?>
             <div class="input<?=$error?' error':''?>">
-            <?=Form::text('start_date', Input::old('start_date', $default), array('class' => 'span10'));?>
+            <?=Form::text('start_date', Input::old('start_date', $default), array('class' => 'span4', 'id' => 'start_date'));?>
             <?for ($i = strtotime('12:00AM'); $i <= strtotime('11:45PM'); $i += 900) {
-                $time_array[date('G:i:s',$i)] = date('g:i A',$i);
+                $time_array[$i] = date('g:i A',$i);
             } ?>
-            <?=Form::select('start_time', $time_array, Input::old('start_time', $default))?>
+            <?=Form::select('start_time', $time_array, Input::old('start_time', strtotime('5:00PM')))?>
             <?if($error){?>
                 <span class="help-inline"><?=$errors->first('start_time');?></span>
             <?}?>
@@ -98,8 +98,8 @@
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('end_time', 'End Time');?>
             <div class="input<?=$error?' error':''?>">
-            <?=Form::text('end_date', Input::old('end_date', $default), array('class' => 'span10'));?>
-            <?=Form::select('end_time', $time_array, Input::old('end_time', $default))?>
+            <?=Form::text('end_date', Input::old('end_date', $default), array('class' => 'span4', 'id' => 'end_date'));?>
+            <?=Form::select('end_time', $time_array, Input::old('end_time', strtotime('6:00PM')))?>
             <?if($error){?>
                 <span class="help-inline"><?=$errors->first('end_time');?></span>
             <?}?>
@@ -131,3 +131,16 @@
     </div>
 </div>
 <?}?>
+
+<script>
+    $(function() {
+        $( "#start_date" ).datepicker();
+        $( "#end_date" ).datepicker();
+    });
+    $( "#start_time" ).change(function () {
+        $( "#end_time" ).val(parseInt($( "#start_time" ).val()) + 3600)
+    })
+    $( "#start_date" ).change(function () {
+        $( "#end_date" ).val($( "#start_date" ).val())
+    })
+</script>

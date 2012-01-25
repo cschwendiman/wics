@@ -6,6 +6,8 @@ return array(
 	{
 		Asset::add('bootstrap', 'bootstrap/bootstrap.css');
 		Asset::add('jquery', 'js/jquery.js');
+        Asset::add('jquery-ui', 'js/jquery-ui.js', 'jquery');
+        Asset::add('jquery-ui-css', 'css/smoothness/jquery-ui-1.8.17.custom.css');
 		Asset::add('bootstrapalerts', 'bootstrap/js/bootstrap-alerts.js', 'jquery');
 		Asset::add('jquerytablesort', 'js/jquery.tablesorter.min.js', 'jquery');
 		

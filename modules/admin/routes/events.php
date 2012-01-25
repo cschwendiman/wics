@@ -87,8 +87,8 @@ return array(
             $event->name = $input['name'];
             $event->description = MarkdownText($input['description']);
             $event->user_id = $input['user_id'];
-            $event->start_time = $input['start_date'].'T'.$input['start_time'];
-            $event->end_time = $input['end_date'].'T'.$input['end_time'];
+            $event->start_time = $event->isoFormat($input['start_date'], $input['start_time']);
+            $event->end_time = $event->isoFormat($input['end_date'], $input['end_time']);
             $event->location = $input['location'];
             $event->active = (int)isset($input['publish']);
             $event->save();

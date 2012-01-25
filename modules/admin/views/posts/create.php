@@ -14,7 +14,7 @@
     	<?if($errors = Session::get('errors')){?>
 			<div class="alert-message error fade in" data-alert="alert">
 			  <a class="close" href="#">×</a>
-			  <? $msg = count(errors) ? "Please fix the following errors" : "An unknown error has occured"; ?>
+			  <? $msg = count($errors) ? "Please fix the following errors" : "An unknown error has occured"; ?>
 			  <p><strong>Error</strong> <?=$msg?></p>
 			</div>
 		<?}?>
