@@ -56,7 +56,7 @@ return array(
 
     'POST /admin/events/create, POST /admin/events/update/(:num)' => array('needs' => 'markdown', 'before' => 'auth', 'do' => function($id = null) {
         $input = Input::all();
-        $redirect_location = $id ? "admin/events/update/$id" : 'admin/events/create';
+        $redirect_location = $id ? "admin/events/update/$id" : 'admin/events/google';
         if($id && $input['id'] != $id){
             return Redirect::to($redirect_location)->with('errors', array());
         }
@@ -78,6 +78,7 @@ return array(
             return Redirect::to($redirect_location)->with('errors', $validator->errors);
         }
 
+
         if(Input::has('preview')){
             $description = MarkdownText(Input::get('description'));
             return Redirect::to($redirect_location)->with('preview', $description);
@@ -92,11 +93,32 @@ return array(
             $event->location = $input['location'];
             $event->active = (int)isset($input['publish']);
             $event->save();
-            return Redirect::to($redirect_location)->with('success', 'Event successfully '.$verb.($event->active?' and published':''));
+            //if($event->postToGCal()) {
+                return Redirect::to($redirect_location);
+            /*} else {
+                return Redirect::to($redirect_location)->with('success', 'Event NOT successfully '.$verb.($event->active?' and published':''));
+            }*/
         }
+
     }),
 
     'GET /admin/events/update' => array('before' => 'auth', 'do' => function() {
         return Redirect::to_eventsmanage()->with('error', 'To update a event click on its update link in the table below');
+    }),
+
+    'GET /admin/events/google' => array('before' => 'auth', 'do' => function() {
+        $view = View::of_layout();
+        $view->bind('content', View::make('admin::events.google'));
+        $view->bind('nav', View::make('admin::layout.tabs'));
+        $view->header->topnav->active = 'events';
+        $view->nav->model = 'events';
+        $view->nav->active = 'manage';
+
+        $current_user = Auth::user();
+        $view->content->current_user = $current_user;
+        $view->content->users = User::all();
+        $view->content->e = Event::find(Event::max('id'));
+
+        return $view;
     })
 );

@@ -132,6 +132,43 @@
 </div>
 <?}?>
 
+<? require_once dirname(__FILE__).'/../../../../packages/google-api/apiClient.php';
+require_once dirname(__FILE__).'/../../../../packages/google-api/contrib/apiCalendarService.php';
+session_start();
+
+$client = new Google\apiClient();
+$client->setApplicationName("Google Calendar PHP Starter Application");
+
+$client->setClientId('96433116372-r9pdi7tgbe2d73g8ob30rt4pqvhvsotu.apps.googleusercontent.com');
+$client->setClientSecret('Fj78WkWA2t4PzcbntMcaFEAr');
+$client->setRedirectUri('http://localhost/admin/events/create');
+// $client->setDeveloperKey('insert_your_developer_key');
+$cal = new Google\apiCalendarService($client);
+if (isset($_GET['logout'])) {
+  $current_user->google_token = 0;
+  $current_user->save();
+}
+
+if (isset($_GET['code'])) {
+  $client->authenticate();
+  $current_user->google_token = $client->getAccessToken();
+  $current_user->save();
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+}
+
+if ($current_user->google_token) {
+  $client->setAccessToken($current_user->google_token);
+}
+
+if ($client->getAccessToken()) {
+  print "<h1>Authenticated</h1>";
+} else {
+  $authUrl = $client->createAuthUrl();
+  print "<a class='login' href='$authUrl'>Connect Me!</a>";
+}
+
+  print "<a class='login' href='?logout'>Logout!</a>";?>
+
 <script>
     $(function() {
         $( "#start_date" ).datepicker();
