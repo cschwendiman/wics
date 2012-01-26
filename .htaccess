@@ -1,8 +1,10 @@
-RedirectMatch ^/users/wics/(.*) /~wics/$1
-
 <IfModule mod_rewrite.c>
-     RewriteEngine on
-     RewriteBase /~wics
+    RewriteEngine on
 
-     RewriteRule ^(.*)$ public/$1 [L]
+    RewriteBase /~wics    
+
+    RewriteCond %{REQUEST_URI} /users/wics(.*)
+    RewriteRule ^(.*)$ $1 [L,R]
+ 
+    RewriteRule ^(.*)$ public/$1
 </IfModule>
