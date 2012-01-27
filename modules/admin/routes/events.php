@@ -86,18 +86,15 @@ return array(
             $verb = isset($event) ? 'updated' : 'created';
             $event = isset($event) ? $event : new Event;
             $event->name = $input['name'];
-            $event->description = MarkdownText($input['description']);
+            $event->description = trim(MarkdownText($input['description']));
             $event->user_id = $input['user_id'];
             $event->start_time = $event->isoFormat($input['start_date'], $input['start_time']);
             $event->end_time = $event->isoFormat($input['end_date'], $input['end_time']);
             $event->location = $input['location'];
             $event->active = (int)isset($input['publish']);
             $event->save();
-            //if($event->postToGCal()) {
-                return Redirect::to($redirect_location);
-            /*} else {
-                return Redirect::to($redirect_location)->with('success', 'Event NOT successfully '.$verb.($event->active?' and published':''));
-            }*/
+            return Redirect::to($redirect_location);
+            //return Redirect::to($redirect_location)->with('success', 'Event NOT successfully '.$verb.($event->active?' and published':''));
         }
 
     }),
