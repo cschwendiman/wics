@@ -1,7 +1,7 @@
 <div class="row">
     <div class="span16">
         <?
-        $isupdate = isset($post);
+        $isupdate = isset($event);
         $h1 = $isupdate ? 'Update' : 'Create New';
         ?>
         <h1><?=$h1?> Event</h1>
@@ -21,11 +21,11 @@
         <?=Form::open();?>
         <?//Form::token();?>
         <?if($isupdate){?>
-            <?=Form::hidden('id', $post->id);?>
+            <?=Form::hidden('id', $event->id);?>
         <?}?>
         <?
         $error = $errors&&$errors->has('name');
-        $default = $isupdate ? $post->name : '';
+        $default = $isupdate ? $event->name : '';
         ?>
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('name', 'Title');?>
@@ -38,7 +38,7 @@
         </div>
         <?
         $error = $errors&&$errors->has('description');
-        $default = $isupdate ? $post->description : '';
+        $default = $isupdate ? $event->description : '';
         ?>
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('description', 'Description');?>
@@ -47,12 +47,12 @@
             <?if($error){?>
                 <span class="help-inline"><?=$errors->first('description');?></span>
             <?}?>
-            <span class="help-block">Please use <?=HTML::link('http://daringfireball.net/projects/description/syntax', 'description');?> to markup your post.</span>
+            <span class="help-block">Please use <?=HTML::link('http://daringfireball.net/projects/description/syntax', 'description');?> to markup your description.</span>
             </div>
         </div>
         <?
         $error = $errors&&$errors->has('user_id');
-        $default = $isupdate ? $post->user_id : '';
+        $default = $isupdate ? $event->user_id : '';
         ?>
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('user_id', 'Author');?>
@@ -70,7 +70,10 @@
             <?}?>
             </div>
         </div>
-        <?$error = $errors&&$errors->has('location');?>
+        <?
+        $error = $errors&&$errors->has('location');
+        $default = $isupdate ? $event->location : '';
+        ?>
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('location', 'Location');?>
             <div class="input<?=$error?' error':''?>">
@@ -80,7 +83,10 @@
             <?}?>
             </div>
         </div>
-        <?$error = $errors&&$errors->has('start_time');?>
+        <?
+        $error = $errors&&$errors->has('start_time');
+        $default = $isupdate ? $event->start_time : '';
+        ?>
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('start_time', 'Start Time');?>
             <div class="input<?=$error?' error':''?>">
@@ -94,7 +100,10 @@
             <?}?>
             </div>
         </div>
-        <?$error = $errors&&$errors->has('end_time');?>
+        <?
+        $error = $errors&&$errors->has('end_time');
+        $default = $isupdate ? $event->end_time : '';
+        ?>
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('end_time', 'End Time');?>
             <div class="input<?=$error?' error':''?>">
@@ -105,7 +114,10 @@
             <?}?>
             </div>
         </div>
-        <?$error = $errors&&$errors->has('rsvp');?>
+        <?
+        $error = $errors&&$errors->has('rsvp');
+        $default = $isupdate ? $event->rsvp : '';
+        ?>
         <div class="clearfix<?=$error?' error':''?>">
             <?=Form::label('rsvp', 'Requires RSVP?');?>
             <div class="input<?=$error?' error':''?>">
