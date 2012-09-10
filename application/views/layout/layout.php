@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Women in Computer Sciences | The University of Texas at Austin</title>
+		<title>Women in Computer Science | The University of Texas at Austin</title>
 		<link href='http://fonts.googleapis.com/css?family=Ovo' rel='stylesheet' type='text/css'>
 	    <?php echo Asset::styles(); ?>
 	    <?php echo Asset::scripts(); ?>

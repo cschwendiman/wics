@@ -1,5 +1,5 @@
 <div id="header" class="span10">
-	<h1>Women in Computer Sciences</h1>
+	<h1>Women in Computer Science</h1>
 	<h6>The University of Texas at Austin</h6>
 </div>
 <div id="email-signup" class="span6"><?/*

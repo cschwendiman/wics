@@ -1,5 +1,7 @@
 <div class="post" id="sponsors">
 <h2>Thank you to our sponsors:</h2>
+<p>The list of our 2012-2013 sponsors is coming soon!</p>
+<!--
 <ul class="media-grid">
 <li><a href="http://universitycoop.com/" target="_blank"><img src="img/sponsors/universitycoop_logo.jpg"></a></li>
 <li><a href="http://www.google.com/" target="_blank"><img src="img/sponsors/google_logo.png"></a></li>
@@ -11,5 +13,5 @@
 <li><a href="http://www.salesforce.com/" target="_blank"><img src="img/sponsors/salesforce_logo.jpg"></a></li>
 <li><a href="http://www.accenture.com/" target="_blank"><img src="img/sponsors/accenture_logo.jpg"></a></li>
 <li><a href="http://www.yelp.com/" target="_blank"><img src="img/sponsors/yelp_logo.jpg"></a></li>
-</ul>
+</ul>-->
 </div>
